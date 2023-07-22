@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 public class BoardManager : MonoBehaviour
 {
@@ -34,6 +35,11 @@ public class BoardManager : MonoBehaviour
             {
                 GameObject newTile = Instantiate(tile, new Vector3(startX + (xOffset * x), startY + (yOffset * y), 0), tile.transform.rotation);
                 tiles[x, y] = newTile;
+
+                newTile.transform.parent = transform;
+                Sprite newSprite = fruits[Random.Range(0, fruits.Count)];
+                newTile.GetComponent<SpriteRenderer>().sprite = newSprite;
+
             }
         }
     }
