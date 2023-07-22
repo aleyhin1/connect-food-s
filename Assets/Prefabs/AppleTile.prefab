@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2959832063985487744}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8149372300321249755
 SpriteRenderer:
@@ -112,12 +112,12 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1672091136556632721}
   - {fileID: 2502546531070533225}
+  - {fileID: 839578274620519504}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &2073699696845458783
+--- !u!1001 &24192668835951518
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -126,7 +126,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 861090110765434830, guid: 99a81afd70f8eca46a1c372a6f332119, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 861090110765434830, guid: 99a81afd70f8eca46a1c372a6f332119, type: 3}
       propertyPath: m_LocalPosition.x
@@ -170,12 +170,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4287284788143970125, guid: 99a81afd70f8eca46a1c372a6f332119, type: 3}
       propertyPath: m_Name
-      value: BackgroundSprite
+      value: EmptyTile
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99a81afd70f8eca46a1c372a6f332119, type: 3}
---- !u!4 &1672091136556632721 stripped
+--- !u!4 &839578274620519504 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 861090110765434830, guid: 99a81afd70f8eca46a1c372a6f332119, type: 3}
-  m_PrefabInstance: {fileID: 2073699696845458783}
+  m_PrefabInstance: {fileID: 24192668835951518}
   m_PrefabAsset: {fileID: 0}
