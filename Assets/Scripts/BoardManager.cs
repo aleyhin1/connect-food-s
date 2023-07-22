@@ -5,12 +5,12 @@ using UnityEngine.TextCore.Text;
 
 public class BoardManager : MonoBehaviour
 {
-    public static BoardManager instance;
-    public List<Sprite> fruits = new List<Sprite>();     
-    public GameObject tile;      
+    public static BoardManager instance;    
+    public GameObject[] FruitTiles;
+    public SpriteRenderer EmptyTile;
     public int xSize, ySize;     
 
-    private GameObject[,] tiles;      
+    private GameObject[,] _tiles;      
 
     public bool IsShifting { get; set; }     
 
@@ -18,30 +18,29 @@ public class BoardManager : MonoBehaviour
     {
         instance = GetComponent<BoardManager>();     
 
-        Vector2 offset = tile.GetComponent<SpriteRenderer>().bounds.size;
+        Vector2 offset = EmptyTile.bounds.size;
         CreateBoard(offset.x, offset.y);     
     }
 
     private void CreateBoard(float xOffset, float yOffset)
     {
-        tiles = new GameObject[xSize, ySize];  
+        _tiles = new GameObject[xSize, ySize];
 
         float startX = transform.position.x;
         float startY = transform.position.y;
 
         for (int x = 0; x < xSize; x++)
-        {      // 11
+        {      
             for (int y = 0; y < ySize; y++)
             {
-                GameObject newTile = Instantiate(tile, new Vector3(startX + (xOffset * x), startY + (yOffset * y), 0), tile.transform.rotation);
-                tiles[x, y] = newTile;
+                GameObject randomTile = FruitTiles[Random.Range(0, FruitTiles.Length)];
+                Vector3 newPosition = new Vector3(startX + (xOffset * x), startY + (yOffset * y), 0);
 
-                newTile.transform.parent = transform;
-                Sprite newSprite = fruits[Random.Range(0, fruits.Count)];
-                newTile.GetComponent<SpriteRenderer>().sprite = newSprite;
+                GameObject newTile = Instantiate(randomTile, newPosition, randomTile.transform.rotation);
+
+                _tiles[x, y] = newTile;
 
             }
         }
     }
-
 }

@@ -236,13 +236,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31bfd736e968492489e012b68c58f3bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fruits:
-  - {fileID: -281905199, guid: e701be7a97dac0843af6f68832c49063, type: 3}
-  - {fileID: -1792754382, guid: e701be7a97dac0843af6f68832c49063, type: 3}
-  - {fileID: 2104175871, guid: e701be7a97dac0843af6f68832c49063, type: 3}
-  - {fileID: 600415059, guid: e701be7a97dac0843af6f68832c49063, type: 3}
-  - {fileID: -660643523, guid: e701be7a97dac0843af6f68832c49063, type: 3}
-  tile: {fileID: 2959832063985487746, guid: 93a1cb7dbb05f1746a83f6c06d2ec71c, type: 3}
+  FruitTiles:
+  - {fileID: 2959832063985487746, guid: f17564060c316504eb9ea0b5bc0da26f, type: 3}
+  - {fileID: 2959832063985487746, guid: 56b5630aa29a1da49866bbe288503f5f, type: 3}
+  - {fileID: 2959832063985487746, guid: 966efd43c6a8c7840a95e21754acf0fa, type: 3}
+  - {fileID: 2959832063985487746, guid: 93a1cb7dbb05f1746a83f6c06d2ec71c, type: 3}
+  - {fileID: 2959832063985487746, guid: 224685dab1fe66f42a07cbae9cd971de, type: 3}
+  EmptyTile: {fileID: 7526015565483737658, guid: 99a81afd70f8eca46a1c372a6f332119, type: 3}
   xSize: 5
   ySize: 6
 --- !u!4 &1036247989
