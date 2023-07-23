@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Schema;
 using UnityEngine;
 
 public class SelectedState : IState
@@ -14,14 +15,15 @@ public class SelectedState : IState
     public void Enter()
     {
         tileScript.animator.SetBool("isSelected", true);
-        tileScript.SelectedTiles.Stack.Push(tileScript.gameObject);
-        Debug.Log(tileScript.SelectedTiles.Stack.Count);
+        var newObjWithPos = new ObjectWithPosition(tileScript.gameObject, tileScript.gameObject.transform.position);
+        tileScript.SelectedTiles.objectList.Add(newObjWithPos);
+
+        Debug.Log(tileScript.SelectedTiles.objectList.Count);
     }
 
     public void Update()
     {
-        // Here we add logic to detect if the conditions exist to
-        // transition to another state
+        
     }
 
     public void Exit()

@@ -7,7 +7,7 @@ using UnityEngine.Events;
 public class TileScript : MonoBehaviour
 {
     public Animator animator;
-    public StackVariable SelectedTiles;
+    public ObjectList SelectedTiles;
 
     private TileStateMachine tileStateMachine;
 
@@ -24,5 +24,10 @@ public class TileScript : MonoBehaviour
     private void OnMouseEnter()
     {
         tileStateMachine.TransitionTo(tileStateMachine.SelectedState);
+    }
+
+    private void Update()
+    {
+        tileStateMachine.Update();
     }
 }
