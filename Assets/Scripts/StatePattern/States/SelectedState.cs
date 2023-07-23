@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class SelectedState : IState
 {
-    private TileStateMachine tileStateMachine;
+    private TileScript tileScript;
 
-    public SelectedState(TileStateMachine tileStateMachine)
+    public SelectedState(TileScript tileScript)
     {
-        this.tileStateMachine = tileStateMachine;
+        this.tileScript = tileScript;
     }
 
     public void Enter()
     {
-        tileStateMachine.animator.SetBool("IsSelected", true);
-        tileStateMachine.SelectedTiles.Stack.Push(tileStateMachine.gameObject);
+        tileScript.animator.SetBool("isSelected", true);
+        tileScript.SelectedTiles.Stack.Push(tileScript.gameObject);
+        Debug.Log(tileScript.SelectedTiles.Stack.Count);
     }
 
     public void Update()
@@ -25,6 +26,6 @@ public class SelectedState : IState
 
     public void Exit()
     {
-        tileStateMachine.animator.SetBool("IsSelected", false);
+        tileScript.animator.SetBool("isSelected", false);
     }
 }

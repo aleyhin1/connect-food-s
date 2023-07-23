@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
 
-public class BoardManager : MonoBehaviour
+public class BoardManagerScript : MonoBehaviour
 {
-    public static BoardManager instance;    
+    public static BoardManagerScript instance;    
     public GameObject[] FruitTiles;
     public SpriteRenderer EmptyTile;
     public int xSize, ySize;     
@@ -16,7 +16,7 @@ public class BoardManager : MonoBehaviour
 
     void Start()
     {
-        instance = GetComponent<BoardManager>();     
+        instance = GetComponent<BoardManagerScript>();     
 
         Vector2 offset = EmptyTile.bounds.size;
         CreateBoard(offset.x, offset.y);     

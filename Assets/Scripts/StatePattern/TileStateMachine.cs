@@ -5,20 +5,17 @@ using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 
 [Serializable]
-public class TileStateMachine : MonoBehaviour
+public class TileStateMachine
 {
     public IState CurrentState { get; private set; }
 
     public IdleState IdleState;
     public SelectedState SelectedState;
 
-    public Animator animator;
-    public StackVariable SelectedTiles;
-
-    private void Start()
+    public TileStateMachine(TileScript tileScript)
     {
-        IdleState = new IdleState(this);
-        SelectedState = new SelectedState(this);
+        this.IdleState = new IdleState(tileScript);
+        this.SelectedState = new SelectedState(tileScript);
     }
 
     public void Initialize(IState startingState)

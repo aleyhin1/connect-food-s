@@ -95,9 +95,8 @@ GameObject:
   - component: {fileID: 4621243947341198631}
   - component: {fileID: 2567904245274423507}
   - component: {fileID: 8736521499646843248}
-  - component: {fileID: 6005369356255761749}
   - component: {fileID: 7190760971109006597}
-  - component: {fileID: 4377927259548916315}
+  - component: {fileID: 6005369356255761749}
   m_Layer: 0
   m_Name: AppleTile
   m_TagString: Untagged
@@ -193,33 +192,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &6005369356255761749
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8119355481336931748}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f554be6bf9a5aa4288a9f17c701fb03, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TileSelectedEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: EmptyTileScript, Assembly-CSharp
-        m_MethodName: OnTileSelected
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!61 &7190760971109006597
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -246,7 +218,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &4377927259548916315
+--- !u!114 &6005369356255761749
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -255,7 +227,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8119355481336931748}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8839ed3f2cf345d498273bf322f38886, type: 3}
+  m_Script: {fileID: 11500000, guid: 6f554be6bf9a5aa4288a9f17c701fb03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 8736521499646843248}
