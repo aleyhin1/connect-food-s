@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface IState
 {
-    public void Enter(Animator animator)
+    public void Enter()
     {
         // code that runs when we first enter the state
     }
@@ -12,7 +12,7 @@ public interface IState
     {
         // per-frame logic, include condition to transition to a new state
     }
-    public void Exit(Animator animator)
+    public void Exit()
     {
         // code that runs when we exit the state
     }

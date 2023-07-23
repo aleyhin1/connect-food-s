@@ -5,7 +5,7 @@ using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 
 [Serializable]
-public class StateMachine
+public class TileStateMachine : MonoBehaviour
 {
     public IState CurrentState { get; private set; }
 
@@ -13,24 +13,25 @@ public class StateMachine
     public SelectedState SelectedState;
 
     public Animator animator;
+    public StackVariable SelectedTiles;
 
-    public StateMachine(EmptyTileScript emptyTile)
+    private void Start()
     {
-        this.IdleState = new IdleState(emptyTile);
-        this.SelectedState = new SelectedState(emptyTile);
+        IdleState = new IdleState(this);
+        SelectedState = new SelectedState(this);
     }
 
     public void Initialize(IState startingState)
     {
         CurrentState = startingState;
-        startingState.Enter(animator);
+        startingState.Enter();
     }
 
     public void TransitionTo(IState nextState)
     {
-        CurrentState.Exit(animator);
+        CurrentState.Exit();
         CurrentState = nextState;
-        nextState.Enter(animator);
+        nextState.Enter();
     }
 
     public void Update()

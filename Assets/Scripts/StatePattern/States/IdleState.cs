@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class IdleState : IState
 {
-    private EmptyTileScript emptyTile;
+    private TileStateMachine tileStateMachine;
 
-    public IdleState(EmptyTileScript emptyTile)
+    public IdleState(TileStateMachine tileStateMachine)
     {
-        this.emptyTile = emptyTile;
+        this.tileStateMachine = tileStateMachine;
     }
 
-    public void Enter(Animator animator)
+    public void Enter()
     {
-        animator.SetBool("IsSelected", false);
+        tileStateMachine.animator.SetBool("IsSelected", false);
     }
 
     public void Update()
@@ -22,8 +22,8 @@ public class IdleState : IState
         // transition to another state
     }
 
-    public void Exit(Animator animator)
+    public void Exit()
     {
-        animator.SetBool("IsSelected", true);
+        tileStateMachine.animator.SetBool("IsSelected", true);
     }
 }
