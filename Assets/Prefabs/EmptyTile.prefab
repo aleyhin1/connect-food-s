@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 7526015565483737658}
   - component: {fileID: 3669479328962833305}
   - component: {fileID: 4986739516730745195}
+  - component: {fileID: -7456382519650244676}
+  - component: {fileID: 2889190034077208556}
   m_Layer: 0
   m_Name: EmptyTile
   m_TagString: Untagged
@@ -118,6 +120,56 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d73d7276ea210440bdb8e9bb86b143f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  evt:
+--- !u!114 &-7456382519650244676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4287284788143970125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f554be6bf9a5aa4288a9f17c701fb03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TileSelectedEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4986739516730745195}
+        m_TargetAssemblyTypeName: EmptyTileScript, Assembly-CSharp
+        m_MethodName: OnTileSelected
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!61 &2889190034077208556
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4287284788143970125}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0

@@ -21,4 +21,8 @@ public class EmptyTileScript : MonoBehaviour
         stateMachine.Initialize(stateMachine.IdleState);
     }
 
+    public void OnTileSelected()
+    {
+        stateMachine.TransitionTo(stateMachine.SelectedState);
+    }
 }
