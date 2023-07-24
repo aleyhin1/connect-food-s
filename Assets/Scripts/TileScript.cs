@@ -6,28 +6,28 @@ using UnityEngine.Events;
 
 public class TileScript : MonoBehaviour
 {
-    public Animator animator;
+    public Animator Animator;
     public ObjectList SelectedTiles;
 
-    private TileStateMachine tileStateMachine;
+    private TileStateMachine _tileStateMachine;
 
     private void Awake()
     {
-        tileStateMachine = new TileStateMachine(this);
+        _tileStateMachine = new TileStateMachine(this);
     }
 
     private void Start()
     {
-        tileStateMachine.Initialize(tileStateMachine.IdleState);
+        _tileStateMachine.Initialize(_tileStateMachine.IdleState);
     }
 
     private void OnMouseEnter()
     {
-        tileStateMachine.TransitionTo(tileStateMachine.SelectedState);
+        _tileStateMachine.TransitionTo(_tileStateMachine.SelectedState);
     }
 
     private void Update()
     {
-        tileStateMachine.Update();
+        _tileStateMachine.Update();
     }
 }

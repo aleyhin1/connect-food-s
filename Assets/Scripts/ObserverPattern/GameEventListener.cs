@@ -5,19 +5,19 @@ using UnityEngine.Events;
 
 public class GameEventListener : MonoBehaviour
 {
-    public GameEvent gameEvent;
-    public UnityEvent onEventTriggered;
+    public GameEvent GameEvent;
+    public UnityEvent OnEventTrigger;
 
     void OnEnable()
     {
-        gameEvent.AddListener(this);
+        GameEvent.AddListener(this);
     }
     void OnDisable()
     {
-        gameEvent.RemoveListener(this);
+        GameEvent.RemoveListener(this);
     }
     public void OnEventTriggered()
     {
-        onEventTriggered.Invoke();
+        OnEventTrigger.Invoke();
     }
 }

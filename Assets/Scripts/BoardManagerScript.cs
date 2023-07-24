@@ -6,7 +6,7 @@ using UnityEngine.TextCore.Text;
 
 public class BoardManagerScript : MonoBehaviour
 {
-    public static BoardManagerScript instance;    
+    public static BoardManagerScript Instance;    
     public GameObject[] FruitTiles;
     public SpriteRenderer EmptyTile;
     public int xSize, ySize;
@@ -18,7 +18,7 @@ public class BoardManagerScript : MonoBehaviour
 
     void Start()
     {
-        instance = GetComponent<BoardManagerScript>();     
+        Instance = GetComponent<BoardManagerScript>();     
 
         Vector2 offset = EmptyTile.bounds.size;
         CreateBoard(offset.x, offset.y);
@@ -51,6 +51,6 @@ public class BoardManagerScript : MonoBehaviour
     private void AddTileToList(GameObject tile, Vector3 position)
     {
         var objWithPosition = new ObjectWithPosition(tile, position);
-        ActiveTiles.objectList.Add(objWithPosition);
+        ActiveTiles.List.Add(objWithPosition);
     }
 }

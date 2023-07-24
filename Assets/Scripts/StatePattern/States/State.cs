@@ -4,23 +4,23 @@ using UnityEngine;
 
 public class State : IState
 {
-    protected TileScript tileScript;
+    protected TileScript TileScript;
 
     public State(TileScript tileScript)
     {
-        this.tileScript = tileScript;
+        this.TileScript = tileScript;
     }
 
     protected void AddTileToList()
     {
-        var newObjWithPos = new ObjectWithPosition(tileScript.gameObject, tileScript.gameObject.transform.position);
-        tileScript.SelectedTiles.objectList.Add(newObjWithPos);
+        var newObjWithPos = new ObjectWithPosition(TileScript.gameObject, TileScript.gameObject.transform.position);
+        TileScript.SelectedTiles.List.Add(newObjWithPos);
     }
 
     protected void RemoveTileFromList()
     {
-        var newObjWithPos = new ObjectWithPosition(tileScript.gameObject, tileScript.gameObject.transform.position);
-        tileScript.SelectedTiles.objectList.Remove(newObjWithPos);
+        var newObjWithPos = new ObjectWithPosition(TileScript.gameObject, TileScript.gameObject.transform.position);
+        TileScript.SelectedTiles.List.Remove(newObjWithPos);
     }
 
 }

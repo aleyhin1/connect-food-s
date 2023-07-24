@@ -6,7 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "ObjectList")]
 public class ObjectList : ScriptableObject
 {
-    public List<ObjectWithPosition> objectList = new List<ObjectWithPosition>();
+    public List<ObjectWithPosition> List = new List<ObjectWithPosition>();
 }
 
 public class ObjectWithPosition
@@ -14,9 +14,9 @@ public class ObjectWithPosition
     public GameObject Object;
     public Vector3 Position;
 
-    public ObjectWithPosition(GameObject @object, Vector3 position)
+    public ObjectWithPosition(GameObject obj, Vector3 pos)
     {
-        Object = @object;
-        Position = position;
+        Object = obj;
+        Position = pos;
     }
 }

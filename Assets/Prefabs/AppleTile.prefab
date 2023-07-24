@@ -230,5 +230,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f554be6bf9a5aa4288a9f17c701fb03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 8736521499646843248}
+  Animator: {fileID: 8736521499646843248}
   SelectedTiles: {fileID: 11400000, guid: f6c149b32b1674143958f67bf966a605, type: 2}

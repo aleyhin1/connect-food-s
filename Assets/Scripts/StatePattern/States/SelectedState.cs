@@ -9,7 +9,7 @@ public class SelectedState : State , IState
 
     public void Enter()
     {
-        tileScript.animator.SetBool("isSelected", true);
+        TileScript.Animator.SetBool("isSelected", true);
         AddTileToList();
     }
 
@@ -20,7 +20,7 @@ public class SelectedState : State , IState
 
     public void Exit()
     {
-        tileScript.animator.SetBool("isSelected", false);
+        TileScript.Animator.SetBool("isSelected", false);
         RemoveTileFromList();
     }
 
