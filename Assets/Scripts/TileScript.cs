@@ -29,5 +29,6 @@ public class TileScript : MonoBehaviour
     private void Update()
     {
         tileStateMachine.Update();
+        Debug.Log(SelectedTiles.objectList.Count);
     }
 }

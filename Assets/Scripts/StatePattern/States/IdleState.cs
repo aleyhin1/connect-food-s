@@ -2,18 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IdleState : IState
+public class IdleState : State, IState
 {
-    private TileScript tileScript;
 
-    public IdleState(TileScript tileScript)
-    {
-        this.tileScript = tileScript;
-    }
+    public IdleState(TileScript tileScript) : base(tileScript) { }
 
     public void Enter()
     {
-        //tileScript.animator.SetBool("IsSelected", false);
+
     }
 
     public void Update()
@@ -24,6 +20,6 @@ public class IdleState : IState
 
     public void Exit()
     {
-        //tileScript.animator.SetBool("IsSelected", true);
+
     }
 }

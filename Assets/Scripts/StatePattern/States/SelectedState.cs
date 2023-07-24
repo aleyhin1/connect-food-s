@@ -3,22 +3,14 @@ using System.Collections.Generic;
 using System.Xml.Schema;
 using UnityEngine;
 
-public class SelectedState : IState
+public class SelectedState : State , IState
 {
-    private TileScript tileScript;
-
-    public SelectedState(TileScript tileScript)
-    {
-        this.tileScript = tileScript;
-    }
+    public SelectedState(TileScript tileScript): base(tileScript) { }
 
     public void Enter()
     {
         tileScript.animator.SetBool("isSelected", true);
-        var newObjWithPos = new ObjectWithPosition(tileScript.gameObject, tileScript.gameObject.transform.position);
-        tileScript.SelectedTiles.objectList.Add(newObjWithPos);
-
-        Debug.Log(tileScript.SelectedTiles.objectList.Count);
+        AddTileToList();
     }
 
     public void Update()
@@ -29,5 +21,8 @@ public class SelectedState : IState
     public void Exit()
     {
         tileScript.animator.SetBool("isSelected", false);
+        RemoveTileFromList();
     }
+
+
 }

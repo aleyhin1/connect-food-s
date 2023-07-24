@@ -6,7 +6,8 @@ public class DoubleTileDestroyer : MonoBehaviour
 {
     public ObjectList SelectedTiles;
 
-    // Update is called once per frame
+    //Update is called once per frame
+
     //void Update()
     //{
     //    Debug.Log(SelectedTiles.Stack.Count);

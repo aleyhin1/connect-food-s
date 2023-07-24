@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
 
@@ -8,7 +9,8 @@ public class BoardManagerScript : MonoBehaviour
     public static BoardManagerScript instance;    
     public GameObject[] FruitTiles;
     public SpriteRenderer EmptyTile;
-    public int xSize, ySize;     
+    public int xSize, ySize;
+    public ObjectList ActiveTiles;
 
     private GameObject[,] _tiles;      
 
@@ -19,7 +21,7 @@ public class BoardManagerScript : MonoBehaviour
         instance = GetComponent<BoardManagerScript>();     
 
         Vector2 offset = EmptyTile.bounds.size;
-        CreateBoard(offset.x, offset.y);     
+        CreateBoard(offset.x, offset.y);
     }
 
     private void CreateBoard(float xOffset, float yOffset)
@@ -40,7 +42,15 @@ public class BoardManagerScript : MonoBehaviour
 
                 _tiles[x, y] = newTile;
 
+                AddTileToList(newTile, newPosition);
+
             }
         }
+    }
+
+    private void AddTileToList(GameObject tile, Vector3 position)
+    {
+        var objWithPosition = new ObjectWithPosition(tile, position);
+        ActiveTiles.objectList.Add(objWithPosition);
     }
 }
