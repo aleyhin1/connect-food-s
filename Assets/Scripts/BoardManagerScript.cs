@@ -1,56 +1,42 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.TextCore.Text;
 
 public class BoardManagerScript : MonoBehaviour
 {
-    public static BoardManagerScript Instance;    
-    public GameObject[] FruitTiles;
-    public SpriteRenderer EmptyTile;
-    public int xSize, ySize;
-    public ObjectList ActiveTiles;
+    private IDictionary<Vector3, Vector3> nodeParents = new Dictionary<Vector3, Vector3>();
+    public IDictionary<Vector3, bool> walkablePositions;
 
-    private GameObject[,] _tiles;      
 
-    public bool IsShifting { get; set; }     
+    //Vector3 FindShortestPath(Vector3 startPosition, Vector3 goalPosition)
+    //{
+    //    Queue<Vector3> queue = new Queue<Vector3>();
+    //    HashSet<Vector3> visitedNodes = new HashSet<Vector3>();
+    //    queue.Enqueue(startPosition);
 
-    void Start()
-    {
-        Instance = GetComponent<BoardManagerScript>();     
+    //    while (queue.Count > 0)
+    //    {
+    //        Vector3 currentNode = queue.Dequeue();
+    //        if (currentNode == goalPosition)
+    //        {
+    //            return currentNode;
+    //        }
 
-        Vector2 offset = EmptyTile.bounds.size;
-        CreateBoard(offset.x, offset.y);
-    }
+    //        IList<Vector3> nodes = GetWalkableNodes(currentNode);
 
-    private void CreateBoard(float xOffset, float yOffset)
-    {
-        _tiles = new GameObject[xSize, ySize];
+    //        foreach(Vector3 node in nodes)
+    //        {
+    //            if (!visitedNodes.Contains(node))
+    //            {
+    //                visitedNodes.Add(node);
+    //                nodeParents.Add(node, currentNode);
+    //                queue.Enqueue(node);
+    //            }
+    //        }
+    //    }
 
-        float startX = transform.position.x;
-        float startY = transform.position.y;
-
-        for (int x = 0; x < xSize; x++)
-        {      
-            for (int y = 0; y < ySize; y++)
-            {
-                GameObject randomTile = FruitTiles[Random.Range(0, FruitTiles.Length)];
-                Vector3 newPosition = new Vector3(startX + (xOffset * x), startY + (yOffset * y), 0);
-
-                GameObject newTile = Instantiate(randomTile, newPosition, randomTile.transform.rotation);
-
-                _tiles[x, y] = newTile;
-
-                AddTileToList(newTile, newPosition);
-
-            }
-        }
-    }
-
-    private void AddTileToList(GameObject tile, Vector3 position)
-    {
-        var objWithPosition = new ObjectWithPosition(tile, position);
-        ActiveTiles.List.Add(objWithPosition);
-    }
+    //    return startPosition;
+    //}
 }
