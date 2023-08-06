@@ -1,6 +1,7 @@
 using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ public class BoardManagerScript : MonoBehaviour
 {
     private IDictionary<Vector3, Vector3> nodeParents = new Dictionary<Vector3, Vector3>();
     public IDictionary<Vector3, bool> walkablePositions;
+    public ObjectList ActiveTiles;
 
 
     //Vector3 FindShortestPath(Vector3 startPosition, Vector3 goalPosition)
@@ -38,5 +40,13 @@ public class BoardManagerScript : MonoBehaviour
     //    }
 
     //    return startPosition;
+    //}
+
+    //public void SetWalkableTiles(Vector3 initialTilePosition)
+    //{
+    //    for (int i = 0; i < 8; i++)
+    //    {
+    //        if (ActiveTiles.List.Contains(_,initialTilePosition + )
+    //    }
     //}
 }

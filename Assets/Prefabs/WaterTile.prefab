@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 5628552154764227788}
   m_Layer: 0
   m_Name: WaterTile
-  m_TagString: Untagged
+  m_TagString: Water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -216,7 +216,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.7, y: 0.7}
   m_EdgeRadius: 0
 --- !u!114 &5628552154764227788
 MonoBehaviour:
@@ -232,3 +232,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Animator: {fileID: 7238874244277106921}
   SelectedTiles: {fileID: 11400000, guid: f6c149b32b1674143958f67bf966a605, type: 2}
+  SelectedFruit: {fileID: 11400000, guid: 09906d3a0d2ffac4b93672ad5a145cc1, type: 2}
