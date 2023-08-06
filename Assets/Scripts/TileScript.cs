@@ -10,21 +10,21 @@ public class TileScript : MonoBehaviour
     public Animator Animator;
     public ObjectList SelectedTiles;
     public SelectedFruit SelectedFruit;
-    public GameObject[] NeighbourTiles;
+    public List<GameObject> NeighbourTiles;
     public bool IsWalkable = false;
 
-    private TileStateMachine _tileStateMachine;
+    public TileStateMachine TileStateMachine;
     private Vector2[] _raycastVectors = { Vector2.left, Vector2.left + Vector2.up, Vector2.up, Vector2.up + Vector2.right
     , Vector2.right, Vector2.right + Vector2.down, Vector2.down, Vector2.down + Vector2.left};
 
     private void Awake()
     {
-        _tileStateMachine = new TileStateMachine(this);
+        TileStateMachine = new TileStateMachine(this);
     }
 
     private void Start()
     {
-        _tileStateMachine.Initialize(_tileStateMachine.IdleState);
+        TileStateMachine.Initialize(TileStateMachine.IdleState);
         SetNeighbourTiles();
     }
 
@@ -32,20 +32,20 @@ public class TileScript : MonoBehaviour
     {
         if (SelectedFruit.Type == string.Empty)
         {
-            _tileStateMachine.TransitionTo(_tileStateMachine.SelectedState);
+            TileStateMachine.TransitionTo(TileStateMachine.SelectedState);
             SelectedFruit.Type = gameObject.tag;
             SetWalkableOnNeighbours();
         }
         else if (gameObject.tag == SelectedFruit.Type && IsWalkable)
         {
-            _tileStateMachine.TransitionTo(_tileStateMachine.SelectedState);
+            TileStateMachine.TransitionTo(TileStateMachine.SelectedState);
             SetWalkableOnNeighbours();
         }
     }
 
     private void Update()
     {
-        _tileStateMachine.Update();
+        TileStateMachine.Update();
     }
 
     private void SetNeighbourTiles()
@@ -55,7 +55,7 @@ public class TileScript : MonoBehaviour
             RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, directionVectors, 1f);
             if (hitInfo != false)
             {
-                NeighbourTiles = NeighbourTiles.Append(hitInfo.collider.gameObject).ToArray();
+                NeighbourTiles.Add(hitInfo.collider.gameObject);
             }
         }
     }
@@ -64,7 +64,7 @@ public class TileScript : MonoBehaviour
     {
         foreach (GameObject tile in NeighbourTiles)
         {
-            if (tile.tag == SelectedFruit.Type)
+            if (tile != null && tile.tag == SelectedFruit.Type)
             {
                 tile.GetComponent<TileScript>().IsWalkable = true;
             }

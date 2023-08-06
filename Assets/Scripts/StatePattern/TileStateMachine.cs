@@ -11,11 +11,13 @@ public class TileStateMachine
 
     public IdleState IdleState;
     public SelectedState SelectedState;
+    public DestroyState DestroyState;
 
     public TileStateMachine(TileScript tileScript)
     {
         this.IdleState = new IdleState(tileScript);
         this.SelectedState = new SelectedState(tileScript);
+        this.DestroyState = new DestroyState(tileScript);
     }
 
     public void Initialize(IState startingState)
