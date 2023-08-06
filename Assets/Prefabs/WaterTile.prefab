@@ -233,3 +233,5 @@ MonoBehaviour:
   Animator: {fileID: 7238874244277106921}
   SelectedTiles: {fileID: 11400000, guid: f6c149b32b1674143958f67bf966a605, type: 2}
   SelectedFruit: {fileID: 11400000, guid: 09906d3a0d2ffac4b93672ad5a145cc1, type: 2}
+  NeighbourTiles: []
+  IsWalkable: 0
