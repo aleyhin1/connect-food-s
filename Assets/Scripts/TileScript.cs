@@ -30,16 +30,19 @@ public class TileScript : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        if (SelectedFruit.Type == string.Empty)
+        if (Input.touchCount > 0)
         {
-            TileStateMachine.TransitionTo(TileStateMachine.SelectedState);
-            SelectedFruit.Type = gameObject.tag;
-            SetWalkableOnNeighbours();
-        }
-        else if (gameObject.tag == SelectedFruit.Type && IsWalkable)
-        {
-            TileStateMachine.TransitionTo(TileStateMachine.SelectedState);
-            SetWalkableOnNeighbours();
+            if (SelectedFruit.Type == string.Empty)
+            {
+                TileStateMachine.TransitionTo(TileStateMachine.SelectedState);
+                SelectedFruit.Type = gameObject.tag;
+                SetWalkableOnNeighbours();
+            }
+            else if (gameObject.tag == SelectedFruit.Type && IsWalkable)
+            {
+                TileStateMachine.TransitionTo(TileStateMachine.SelectedState);
+                SetWalkableOnNeighbours();
+            }
         }
     }
 
