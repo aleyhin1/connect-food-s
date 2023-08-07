@@ -2302,7 +2302,7 @@ GameObject:
   - component: {fileID: 2067184588}
   - component: {fileID: 2067184589}
   - component: {fileID: 2067184590}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: GridContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}

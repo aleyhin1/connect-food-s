@@ -25,7 +25,6 @@ public class TileScript : MonoBehaviour
     private void Start()
     {
         TileStateMachine.Initialize(TileStateMachine.IdleState);
-        SetNeighbourTiles();
     }
 
     private void OnMouseEnter()
@@ -60,6 +59,17 @@ public class TileScript : MonoBehaviour
             {
                 NeighbourTiles.Add(hitInfo.collider.gameObject);
             }
+        }
+    }
+
+    public IEnumerator SetNeighboursPerpetually()
+    {
+        while (gameObject != null)
+        {
+            yield return new WaitForSeconds(1);
+
+
+            SetNeighbourTiles();
         }
     }
 

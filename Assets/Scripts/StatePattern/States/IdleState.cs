@@ -9,17 +9,16 @@ public class IdleState : State, IState
 
     public void Enter()
     {
-
+        TileScript.StartCoroutine(TileScript.SetNeighboursPerpetually());
     }
 
     public void Update()
     {
-        // Here we add logic to detect if the conditions exist to
-        // transition to another state
+
     }
 
     public void Exit()
     {
-
+        TileScript.StopCoroutine(TileScript.SetNeighboursPerpetually());
     }
 }
