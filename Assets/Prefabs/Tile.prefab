@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2889190034077208556}
   - component: {fileID: 3669479328962833305}
   - component: {fileID: -7456382519650244676}
+  - component: {fileID: 7110954062353427002}
   m_Layer: 0
   m_Name: Tile
   m_TagString: Untagged
@@ -148,3 +149,26 @@ MonoBehaviour:
   Animator: {fileID: 3669479328962833305}
   SelectedTiles: {fileID: 11400000, guid: f6c149b32b1674143958f67bf966a605, type: 2}
   SelectedFruit: {fileID: 11400000, guid: 09906d3a0d2ffac4b93672ad5a145cc1, type: 2}
+  NeighbourTiles: []
+  IsWalkable: 0
+--- !u!50 &7110954062353427002
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4287284788143970125}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 5

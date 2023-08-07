@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 8736521499646843248}
   - component: {fileID: 7190760971109006597}
   - component: {fileID: 6005369356255761749}
+  - component: {fileID: 393336876476710928}
   m_Layer: 0
   m_Name: AppleTile
   m_TagString: Apple
@@ -216,7 +217,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7, y: 0.7}
+  m_Size: {x: 0.9, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &6005369356255761749
 MonoBehaviour:
@@ -235,3 +236,24 @@ MonoBehaviour:
   SelectedFruit: {fileID: 11400000, guid: 09906d3a0d2ffac4b93672ad5a145cc1, type: 2}
   NeighbourTiles: []
   IsWalkable: 0
+--- !u!50 &393336876476710928
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8119355481336931748}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 5
