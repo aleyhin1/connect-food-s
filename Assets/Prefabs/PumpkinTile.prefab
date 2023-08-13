@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 2866014998173276117}
   - component: {fileID: 1683165288043560837}
   - component: {fileID: -8771864310087906914}
+  - component: {fileID: 5722538785603907635}
   m_Layer: 0
   m_Name: PumpkinTile
   m_TagString: Pumpkin
@@ -257,3 +258,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 5
+--- !u!114 &5722538785603907635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3792357163008774004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e64416efd65caa94e9379a96bf9090f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
