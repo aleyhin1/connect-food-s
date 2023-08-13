@@ -4,25 +4,34 @@ using UnityEngine;
 
 public class ObjectPool : MonoBehaviour
 {
-    [SerializeField] private uint initPoolSize;
-    [SerializeField] private PooledObject objectToPool;
+    public PooledObject[] TilePrefabs;
+    public Vector2Int BoardDimension;
+    // Determines how much bigger the Poolsize should be than the Boardsize
+    public int _poolMultiplier;
+
+    private PooledObject _objectToPool;
+
     // store the pooled objects in a collection
-    private Stack<PooledObject> stack;
+    private Queue<PooledObject> _queue;
+
     private void Start()
     {
         SetupPool();
+        Debug.Log(_queue.Count);
     }
+
     // creates the pool (invoke when the lag is not noticeable)
     private void SetupPool()
     {
-        stack = new Stack<PooledObject>();
+        _queue = new Queue<PooledObject>();
         PooledObject instance = null;
-        for (int i = 0; i < initPoolSize; i++)
+
+        for (int i = 0; i < GetPoolSize(); i++)
         {
-            instance = Instantiate(objectToPool);
+            instance = Instantiate(GetRandomTile(), transform);
             instance.Pool = this;
             instance.gameObject.SetActive(false);
-            stack.Push(instance);
+            _queue.Enqueue(instance);
         }
     }
 
@@ -30,21 +39,35 @@ public class ObjectPool : MonoBehaviour
     public PooledObject GetPooledObject()
     {
         // if the pool is not large enough, instantiate a new PooledObjects
-        if (stack.Count == 0)
+        if (_queue.Count == 0)
         {
-            PooledObject newInstance = Instantiate(objectToPool);
+            PooledObject newInstance = Instantiate(_objectToPool);
             newInstance.Pool = this;
             return newInstance;
         }
 
         // otherwise, just grab the next one from the list
-        PooledObject nextInstance = stack.Pop();
+        PooledObject nextInstance = _queue.Dequeue();
         nextInstance.gameObject.SetActive(true);
         return nextInstance;
     }
+
     public void ReturnToPool(PooledObject pooledObject)
     {
-        stack.Push(pooledObject);
+        _queue.Enqueue(pooledObject);
         pooledObject.gameObject.SetActive(false);
+    }
+
+    private PooledObject GetRandomTile()
+    {
+        int randomIndex = Random.Range(0, TilePrefabs.Length);
+        PooledObject randomTile = TilePrefabs[randomIndex];
+        return randomTile;
+    }
+
+    private int GetPoolSize()
+    {
+        int poolSize = BoardDimension.x * BoardDimension.y * _poolMultiplier;
+        return poolSize;
     }
 }

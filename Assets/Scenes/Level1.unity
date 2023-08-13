@@ -1367,7 +1367,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1036247988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1386,10 +1386,8 @@ MonoBehaviour:
   - {fileID: 5279530949002086885, guid: 966efd43c6a8c7840a95e21754acf0fa, type: 3}
   - {fileID: 3792357163008774004, guid: 93a1cb7dbb05f1746a83f6c06d2ec71c, type: 3}
   - {fileID: 7919095108806001725, guid: 224685dab1fe66f42a07cbae9cd971de, type: 3}
-  EmptyTile: {fileID: 7526015565483737658, guid: 99a81afd70f8eca46a1c372a6f332119, type: 3}
   xSize: 5
   ySize: 6
-  ActiveTiles: {fileID: 11400000, guid: 53f481c78fa7b2f4a83def80f4526533, type: 2}
 --- !u!4 &1036247989
 Transform:
   m_ObjectHideFlags: 0
@@ -1786,8 +1784,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38d2188f82784c8438ed6e1ca3b5b8d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initPoolSize: 0
-  objectToPool: {fileID: 0}
+  TilePrefabs:
+  - {fileID: 6860804268420505511, guid: f17564060c316504eb9ea0b5bc0da26f, type: 3}
+  - {fileID: -7539950720190661950, guid: 56b5630aa29a1da49866bbe288503f5f, type: 3}
+  - {fileID: -7716909251742384832, guid: 966efd43c6a8c7840a95e21754acf0fa, type: 3}
+  - {fileID: 5722538785603907635, guid: 93a1cb7dbb05f1746a83f6c06d2ec71c, type: 3}
+  - {fileID: -1178644321042877288, guid: 224685dab1fe66f42a07cbae9cd971de, type: 3}
+  BoardDimension: {x: 5, y: 6}
+  _poolMultiplier: 2
 --- !u!1 &1457014352
 GameObject:
   m_ObjectHideFlags: 0
