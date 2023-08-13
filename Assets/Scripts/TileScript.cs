@@ -66,7 +66,7 @@ public class TileScript : MonoBehaviour
     {
         while (gameObject != null)
         {
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(.5f);
 
 
             SetNeighbourTiles();
