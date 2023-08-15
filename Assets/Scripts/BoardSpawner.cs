@@ -4,16 +4,29 @@ using UnityEngine;
 
 public class BoardSpawner : MonoBehaviour
 {
-    public GameObject[] FruitTiles;
-    public int xSize, ySize;
+    private ObjectPool _objectPool;
+    private int[] _spawnPositionsX = {-2,-1,0,1,2,2,1,0,-1,-2};
 
     void Start()
     {
-        CreateBoard();
+        _objectPool = GetComponent<ObjectPool>();
+
+        StartCoroutine(FillBoard());
     }
 
-    private void CreateBoard()
+    private IEnumerator FillBoard()
     {
+        yield return new WaitForSeconds(1);
 
+        int tileCount = _objectPool.BoardDimension.x * _objectPool.BoardDimension.y;
+
+        for (int i = 0; i < tileCount; i++)
+        {
+            int spawnPositionXIndex = _spawnPositionsX[i % 10];
+            _objectPool.GetPooledObject().transform.position = new Vector2(spawnPositionXIndex, 6);
+
+            yield return new WaitForSeconds(.1f);
+        }
     }
+
 }

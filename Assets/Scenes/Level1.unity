@@ -1380,14 +1380,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31bfd736e968492489e012b68c58f3bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FruitTiles:
-  - {fileID: 8119355481336931748, guid: f17564060c316504eb9ea0b5bc0da26f, type: 3}
-  - {fileID: 6068842088338494468, guid: 56b5630aa29a1da49866bbe288503f5f, type: 3}
-  - {fileID: 5279530949002086885, guid: 966efd43c6a8c7840a95e21754acf0fa, type: 3}
-  - {fileID: 3792357163008774004, guid: 93a1cb7dbb05f1746a83f6c06d2ec71c, type: 3}
-  - {fileID: 7919095108806001725, guid: 224685dab1fe66f42a07cbae9cd971de, type: 3}
-  xSize: 5
-  ySize: 6
 --- !u!4 &1036247989
 Transform:
   m_ObjectHideFlags: 0
@@ -1750,8 +1742,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1429191984}
   - component: {fileID: 1429191985}
+  - component: {fileID: 1429191986}
   m_Layer: 0
-  m_Name: ObjectPool
+  m_Name: BoardManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1792,6 +1785,18 @@ MonoBehaviour:
   - {fileID: -1178644321042877288, guid: 224685dab1fe66f42a07cbae9cd971de, type: 3}
   BoardDimension: {x: 5, y: 6}
   _poolMultiplier: 2
+--- !u!114 &1429191986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1429191983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31bfd736e968492489e012b68c58f3bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1457014352
 GameObject:
   m_ObjectHideFlags: 0
@@ -2353,7 +2358,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2067184587}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -5, z: 0}
+  m_LocalPosition: {x: 0, y: -4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2376,7 +2381,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: eed33152db526814191a3db07f3ba9ca, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0

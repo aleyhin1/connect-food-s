@@ -17,7 +17,6 @@ public class ObjectPool : MonoBehaviour
     private void Start()
     {
         SetupPool();
-        Debug.Log(_queue.Count);
     }
 
     // creates the pool (invoke when the lag is not noticeable)
