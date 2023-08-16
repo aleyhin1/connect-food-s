@@ -24,7 +24,7 @@ public class TileScript : MonoBehaviour
 
     private void Start()
     {
-        TileStateMachine.Initialize(TileStateMachine.FallingState);
+        TileStateMachine.Initialize(TileStateMachine.IdleState);
     }
 
     private void OnMouseEnter()
