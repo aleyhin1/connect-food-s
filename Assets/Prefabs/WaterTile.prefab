@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 5628552154764227788}
   - component: {fileID: 9118859732066367321}
   - component: {fileID: -1178644321042877288}
+  - component: {fileID: 8102143922437334746}
   m_Layer: 0
   m_Name: WaterTile
   m_TagString: Water
@@ -268,5 +269,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e64416efd65caa94e9379a96bf9090f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8102143922437334746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7919095108806001725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c3f0ad0279cad145b7893edee868920, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

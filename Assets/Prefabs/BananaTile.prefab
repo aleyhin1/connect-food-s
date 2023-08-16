@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8629529036370633973}
   - component: {fileID: -607258888331969528}
   - component: {fileID: -7539950720190661950}
+  - component: {fileID: 7966625857834369203}
   m_Layer: 0
   m_Name: BananaTile
   m_TagString: Banana
@@ -184,6 +185,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e64416efd65caa94e9379a96bf9090f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7966625857834369203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6068842088338494468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c3f0ad0279cad145b7893edee868920, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8018559583811315614
