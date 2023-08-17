@@ -5,7 +5,7 @@ using UnityEngine;
 public class BoardSpawner : MonoBehaviour
 {
     private ObjectPool _objectPool;
-    private int[] _spawnPositionsX = {-2,-1,0,1,2,2,1,0,-1,-2};
+    private float[] _spawnPositionsX = {-1.5f,-.75f,0,.75f,1.5f,1.5f,.75f,0,-.75f,-1.5f};
 
     void Start()
     {
@@ -22,7 +22,8 @@ public class BoardSpawner : MonoBehaviour
 
         for (int i = 0; i < tileCount; i++)
         {
-            int spawnPositionXIndex = _spawnPositionsX[i % 10];
+            float spawnPositionXIndex = _spawnPositionsX[i % 10];
+            Debug.Log(spawnPositionXIndex);
             _objectPool.GetPooledObject().transform.position = new Vector2(spawnPositionXIndex, 6);
 
             yield return new WaitForSeconds(.1f);
