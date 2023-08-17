@@ -9,7 +9,7 @@ public class DestroyState : State, IState
 
     public void Enter()
     {
-        TileScript.TileDestroyed.Invoke();
+        TileScript.Destroy(TileScript.gameObject);
         TileScript.SelectedFruit.Type = string.Empty;
     }
 

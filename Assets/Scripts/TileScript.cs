@@ -1,5 +1,7 @@
-using System.Collections;
+    using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -10,7 +12,6 @@ public class TileScript : MonoBehaviour
     public SelectedFruit SelectedFruit;
     public List<GameObject> NeighbourTiles;
     public bool IsWalkable = false;
-    public UnityEvent TileDestroyed;
 
     public TileStateMachine TileStateMachine;
     private Vector2[] _raycastVectors = { Vector2.left, Vector2.left + Vector2.up, Vector2.up, Vector2.up + Vector2.right
