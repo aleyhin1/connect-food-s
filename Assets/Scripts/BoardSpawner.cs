@@ -11,10 +11,10 @@ public class BoardSpawner : MonoBehaviour
     {
         _objectPool = GetComponent<ObjectPool>();
 
-        StartCoroutine(FillBoard());
+        StartCoroutine(InitializeBoard());
     }
 
-    private IEnumerator FillBoard()
+    private IEnumerator InitializeBoard()
     {
         yield return new WaitForSeconds(1);
 
@@ -29,4 +29,8 @@ public class BoardSpawner : MonoBehaviour
         }
     }
 
+    public void FillBoard(Vector2 tilePosition)
+    {
+        _objectPool.GetPooledObject().transform.position = new Vector2( tilePosition.x, 6 + tilePosition.y);
+    }
 }

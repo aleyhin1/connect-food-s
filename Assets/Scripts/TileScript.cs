@@ -12,6 +12,8 @@ public class TileScript : MonoBehaviour
     public SelectedFruit SelectedFruit;
     public List<GameObject> NeighbourTiles;
     public bool IsWalkable = false;
+    public UnityEvent OnTileDestroy;
+    private BoardSpawner _boardSpawner;
 
     public TileStateMachine TileStateMachine;
     private Vector2[] _raycastVectors = { Vector2.left, Vector2.left + Vector2.up, Vector2.up, Vector2.up + Vector2.right
@@ -25,6 +27,7 @@ public class TileScript : MonoBehaviour
     private void Start()
     {
         TileStateMachine.Initialize(TileStateMachine.IdleState);
+        _boardSpawner = FindObjectOfType<BoardSpawner>();
     }
 
     private void OnMouseEnter()
@@ -82,5 +85,11 @@ public class TileScript : MonoBehaviour
                 tile.GetComponent<TileScript>().IsWalkable = true;
             }
         }
+    }
+
+    public void TileDestroyed()
+    {
+        SelectedFruit.Type = string.Empty;
+        _boardSpawner.FillBoard(transform.position);
     }
 }
