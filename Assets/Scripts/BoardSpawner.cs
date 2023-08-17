@@ -16,7 +16,7 @@ public class BoardSpawner : MonoBehaviour
 
     private IEnumerator FillBoard()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(.1f);
 
         int tileCount = _objectPool.BoardDimension.x * _objectPool.BoardDimension.y;
 

@@ -237,6 +237,9 @@ MonoBehaviour:
   SelectedFruit: {fileID: 11400000, guid: 09906d3a0d2ffac4b93672ad5a145cc1, type: 2}
   NeighbourTiles: []
   IsWalkable: 0
+  TileDestroyed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!50 &393336876476710928
 Rigidbody2D:
   serializedVersion: 4
