@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Xml.Schema;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class SelectedState : State , IState
 {
@@ -11,7 +7,6 @@ public class SelectedState : State , IState
     public void Enter()
     {
         TileScript.Animator.SetBool("isSelected", true);
-        AddTileToList();
         TileScript.SelectedFruit.Type = TileScript.gameObject.tag;
         TileScript.SetWalkableOnNeighbours();
     }
@@ -27,7 +22,6 @@ public class SelectedState : State , IState
     public void Exit()
     {
         TileScript.Animator.SetBool("isSelected", false);
-        RemoveTileFromList();
     }
 
 

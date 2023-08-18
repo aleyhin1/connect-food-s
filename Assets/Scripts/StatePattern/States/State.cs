@@ -11,16 +11,4 @@ public class State : IState
         this.TileScript = tileScript;
     }
 
-    protected void AddTileToList()
-    {
-        var newObjWithPos = new ObjectWithPosition(TileScript.gameObject, TileScript.gameObject.transform.position);
-        TileScript.SelectedTiles.List.Add(newObjWithPos);
-    }
-
-    protected void RemoveTileFromList()
-    {
-        var newObjWithPos = new ObjectWithPosition(TileScript.gameObject, TileScript.gameObject.transform.position);
-        TileScript.SelectedTiles.List.Remove(newObjWithPos);
-    }
-
 }

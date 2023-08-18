@@ -9,7 +9,6 @@ public class BoardManagerScript : MonoBehaviour
 {
     private IDictionary<Vector3, Vector3> nodeParents = new Dictionary<Vector3, Vector3>();
     public IDictionary<Vector3, bool> walkablePositions;
-    public ObjectList ActiveTiles;
 
 
     //Vector3 FindShortestPath(Vector3 startPosition, Vector3 goalPosition)
