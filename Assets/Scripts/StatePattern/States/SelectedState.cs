@@ -6,10 +6,7 @@ public class SelectedState : State , IState
 
     public void Enter()
     {
-        TileScript.Animator.SetBool("isSelected", true);
-        TileScript.SelectedFruit.Type = TileScript.gameObject.tag;
-        TileScript.SetWalkableOnNeighbours();
-        TileScript.SelectedTiles.Tiles.Push(TileScript.gameObject);
+       
     }
 
     public void Update()

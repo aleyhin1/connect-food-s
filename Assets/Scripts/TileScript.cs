@@ -11,6 +11,8 @@ public class TileScript : MonoBehaviour
     public UnityEvent OnTileDestroy;
     public TileStateMachine TileStateMachine;
     public SelectedTiles SelectedTiles;
+    public GameObject Rope;
+    
 
     private BoardSpawner _boardSpawner;
     private Vector2[] _raycastVectors = { Vector2.left, Vector2.left + Vector2.up, Vector2.up, Vector2.up + Vector2.right
@@ -33,12 +35,12 @@ public class TileScript : MonoBehaviour
         {
             if (SelectedFruit.Type == string.Empty)
             {
-                TileStateMachine.TransitionTo(TileStateMachine.SelectedState);
+                TileStateMachine.TransitionTo(TileStateMachine.LastSelectedState);
             }
 
             else if (gameObject.tag == SelectedFruit.Type && IsWalkable)
             {
-                TileStateMachine.TransitionTo(TileStateMachine.SelectedState);
+                TileStateMachine.TransitionTo(TileStateMachine.LastSelectedState);
             }
         }
     }
@@ -46,7 +48,6 @@ public class TileScript : MonoBehaviour
     private void Update()
     {
         TileStateMachine.Update();
-        Debug.Log(SelectedTiles.Tiles.Count);
     }
 
     public void SetWalkableOnNeighbours()

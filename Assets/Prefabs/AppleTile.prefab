@@ -234,7 +234,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Animator: {fileID: 8736521499646843248}
-  SelectedTiles: {fileID: 11400000, guid: f6c149b32b1674143958f67bf966a605, type: 2}
   SelectedFruit: {fileID: 11400000, guid: 09906d3a0d2ffac4b93672ad5a145cc1, type: 2}
   NeighbourTiles: []
   IsWalkable: 0
@@ -265,6 +264,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  SelectedTiles: {fileID: 11400000, guid: f6c149b32b1674143958f67bf966a605, type: 2}
+  Rope: {fileID: 2739219162869932819}
 --- !u!50 &393336876476710928
 Rigidbody2D:
   serializedVersion: 4
@@ -353,8 +354,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rope
       objectReference: {fileID: 0}
+    - target: {fileID: 7197481397904691381, guid: 25b0f22afc17dbf48aa5f84fd5703c6e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25b0f22afc17dbf48aa5f84fd5703c6e, type: 3}
+--- !u!1 &2739219162869932819 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7197481397904691381, guid: 25b0f22afc17dbf48aa5f84fd5703c6e, type: 3}
+  m_PrefabInstance: {fileID: 5035374450134578086}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6387120523350533434 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2108425854432515740, guid: 25b0f22afc17dbf48aa5f84fd5703c6e, type: 3}
