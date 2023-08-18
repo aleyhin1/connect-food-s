@@ -9,6 +9,7 @@ public class SelectedState : State , IState
         TileScript.Animator.SetBool("isSelected", true);
         TileScript.SelectedFruit.Type = TileScript.gameObject.tag;
         TileScript.SetWalkableOnNeighbours();
+        TileScript.SelectedTiles.Tiles.Push(TileScript.gameObject);
     }
 
     public void Update()
@@ -22,6 +23,11 @@ public class SelectedState : State , IState
     public void Exit()
     {
         TileScript.Animator.SetBool("isSelected", false);
+
+        if (TileScript.SelectedTiles.Tiles.Count  > 0)
+        {
+            TileScript.SelectedTiles.Tiles.Clear();
+        }
     }
 
 

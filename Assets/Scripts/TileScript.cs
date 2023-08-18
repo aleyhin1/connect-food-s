@@ -10,6 +10,7 @@ public class TileScript : MonoBehaviour
     public bool IsWalkable = false;
     public UnityEvent OnTileDestroy;
     public TileStateMachine TileStateMachine;
+    public SelectedTiles SelectedTiles;
 
     private BoardSpawner _boardSpawner;
     private Vector2[] _raycastVectors = { Vector2.left, Vector2.left + Vector2.up, Vector2.up, Vector2.up + Vector2.right
@@ -45,6 +46,7 @@ public class TileScript : MonoBehaviour
     private void Update()
     {
         TileStateMachine.Update();
+        Debug.Log(SelectedTiles.Tiles.Count);
     }
 
     public void SetWalkableOnNeighbours()
