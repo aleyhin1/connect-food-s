@@ -28,7 +28,7 @@ public class BoardManagerScript : MonoBehaviour
 
     //        IList<Vector3> nodes = GetWalkableNodes(currentNode);
 
-    //        foreach(Vector3 node in nodes)
+    //        foreach (Vector3 node in nodes)
     //        {
     //            if (!visitedNodes.Contains(node))
     //            {
@@ -46,7 +46,7 @@ public class BoardManagerScript : MonoBehaviour
     //{
     //    for (int i = 0; i < 8; i++)
     //    {
-    //        if (ActiveTiles.List.Contains(_,initialTilePosition + )
+    //        if (ActiveTiles.List.Contains(_, initialTilePosition + )
     //    }
     //}
 }

@@ -12,6 +12,8 @@ public class SelectedState : State , IState
     {
         TileScript.Animator.SetBool("isSelected", true);
         AddTileToList();
+        TileScript.SelectedFruit.Type = TileScript.gameObject.tag;
+        TileScript.SetWalkableOnNeighbours();
     }
 
     public void Update()

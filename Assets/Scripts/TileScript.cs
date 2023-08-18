@@ -37,13 +37,11 @@ public class TileScript : MonoBehaviour
             if (SelectedFruit.Type == string.Empty)
             {
                 TileStateMachine.TransitionTo(TileStateMachine.SelectedState);
-                SelectedFruit.Type = gameObject.tag;
-                SetWalkableOnNeighbours();
             }
+
             else if (gameObject.tag == SelectedFruit.Type && IsWalkable)
             {
                 TileStateMachine.TransitionTo(TileStateMachine.SelectedState);
-                SetWalkableOnNeighbours();
             }
         }
     }
@@ -53,36 +51,15 @@ public class TileScript : MonoBehaviour
         TileStateMachine.Update();
     }
 
-    private void SetNeighbourTiles()
+    public void SetWalkableOnNeighbours()
     {
         foreach (Vector2 directionVectors in _raycastVectors)
         {
             RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, directionVectors, 1f);
-            if (hitInfo != false)
+
+            if (hitInfo != false && (hitInfo.collider.tag == SelectedFruit.Type))
             {
-                NeighbourTiles.Add(hitInfo.collider.gameObject);
-            }
-        }
-    }
-
-    public IEnumerator SetNeighboursPerpetually()
-    {
-        while (gameObject != null)
-        {
-            yield return new WaitForSeconds(.2f);
-
-
-            SetNeighbourTiles();
-        }
-    }
-
-    private void SetWalkableOnNeighbours()
-    {
-        foreach (GameObject tile in NeighbourTiles)
-        {
-            if (tile != null && tile.tag == SelectedFruit.Type)
-            {
-                tile.GetComponent<TileScript>().IsWalkable = true;
+                hitInfo.collider.GetComponent<TileScript>().IsWalkable = true;
             }
         }
     }

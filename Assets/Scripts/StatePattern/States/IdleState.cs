@@ -9,7 +9,7 @@ public class IdleState : State, IState
 
     public void Enter()
     {
-        TileScript.StartCoroutine(TileScript.SetNeighboursPerpetually());
+        //TileScript.StartCoroutine(TileScript.SetNeighboursPerpetually());
     }
 
     public void Update()
@@ -19,6 +19,6 @@ public class IdleState : State, IState
 
     public void Exit()
     {
-        TileScript.StopCoroutine(TileScript.SetNeighboursPerpetually());
+        //TileScript.StopCoroutine(TileScript.SetNeighboursPerpetually());
     }
 }

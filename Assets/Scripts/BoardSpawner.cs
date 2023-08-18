@@ -23,7 +23,6 @@ public class BoardSpawner : MonoBehaviour
         for (int i = 0; i < tileCount; i++)
         {
             float spawnPositionXIndex = _spawnPositionsX[i % 10];
-            Debug.Log(spawnPositionXIndex);
             _objectPool.GetPooledObject().transform.position = new Vector2(spawnPositionXIndex, 6);
 
             yield return new WaitForSeconds(.1f);
