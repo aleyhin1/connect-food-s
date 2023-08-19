@@ -39,6 +39,10 @@ public class LastSelectedState : State, IState
     public void Exit()
     {
         _ropeController.StopCoroutine(_ropeController.MoveCoroutine);
+        if (TileScript.SelectedTiles.Tiles != null)
+        {
+            _ropeController.Lock(TileScript.SelectedTiles.Tiles.Peek());
+        }
     }
 
 }

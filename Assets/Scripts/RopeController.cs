@@ -23,19 +23,26 @@ public class RopeController : MonoBehaviour
             {
                 Vector2 inputPositionScreenPoint = Input.GetTouch(0).position;
                 Vector2 inputPosition = _camera.ScreenToWorldPoint(inputPositionScreenPoint);
-                Vector2 DifferenceVector = inputPosition - _tilePosition;
-                float angleInRadian = Mathf.Atan2(DifferenceVector.y, DifferenceVector.x);
-                float angle = Mathf.Rad2Deg * angleInRadian;
 
-                transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, angle);
-
+                transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, FindAngle(inputPosition));
+                
                 yield return new WaitForEndOfFrame();
             }
         }
     }
 
-    public void Lock()
+    public void Lock(GameObject lastSelectedTile)
     {
+        Vector2 lastSelectedTilePosition = lastSelectedTile.transform.position;
+        transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, FindAngle(lastSelectedTilePosition));
+    }
 
+    private float FindAngle(Vector2 targetPosition)
+    {
+       
+        Vector2 DifferenceVector = targetPosition - _tilePosition;
+        float angleInRadian = Mathf.Atan2(DifferenceVector.y, DifferenceVector.x);
+        float angle = Mathf.Rad2Deg * angleInRadian;
+        return angle;
     }
 }
