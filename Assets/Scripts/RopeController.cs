@@ -6,16 +6,18 @@ public class RopeController : MonoBehaviour
 {
     private Camera _camera;
     private Vector2 _tilePosition;
+    public IEnumerator MoveCoroutine;
 
     private void OnEnable()
     {
         _camera = Camera.main;
         _tilePosition = GetComponentInParent<TileScript>().transform.position;
+        MoveCoroutine = Move();
     }
 
-    public IEnumerator Move()
+    private IEnumerator Move()
     {
-        for (; ; )
+        for (;;)
         {
             if (Input.touchCount != 0)
             {

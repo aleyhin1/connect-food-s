@@ -17,7 +17,7 @@ public class LastSelectedState : State, IState
         TileScript.SelectedTiles.Tiles.Push(TileScript.gameObject);
         TileScript.Rope.SetActive(true);
         _ropeController = TileScript.gameObject.GetComponentInChildren<RopeController>();
-        _ropeController.StartCoroutine(_ropeController.Move());
+        _ropeController.StartCoroutine(_ropeController.MoveCoroutine);
     }
 
     public void Update()
@@ -38,7 +38,7 @@ public class LastSelectedState : State, IState
 
     public void Exit()
     {
-        _ropeController.StopCoroutine(_ropeController.Move());
+        _ropeController.StopCoroutine(_ropeController.MoveCoroutine);
     }
 
 }
