@@ -53,7 +53,7 @@ public class RopeController : MonoBehaviour
             if (Input.touchCount != 0)
             {
                 Vector2 resizeVector = GetInputVector() - _tilePosition;
-                float resizeMultiplier = resizeVector.magnitude*2;
+                float resizeMultiplier = resizeVector.magnitude;
                 resizeMultiplier = Mathf.Clamp(resizeMultiplier, 0, 1.75f);
 
                 transform.localScale = new Vector3(resizeMultiplier, .25f, 1);

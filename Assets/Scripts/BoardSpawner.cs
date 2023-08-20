@@ -5,7 +5,7 @@ using UnityEngine;
 public class BoardSpawner : MonoBehaviour
 {
     private ObjectPool _objectPool;
-    private float[] _spawnPositionsX = {-1.5f,-.75f,0,.75f,1.5f,1.5f,.75f,0,-.75f,-1.5f};
+    private float[] _spawnPositionsX = {-2,-1,0,1,2,2,1,0,-1,-2};
 
     void Start()
     {
@@ -16,7 +16,7 @@ public class BoardSpawner : MonoBehaviour
 
     private IEnumerator InitializeBoard()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(.1f);
 
         int tileCount = _objectPool.BoardDimension.x * _objectPool.BoardDimension.y;
 
