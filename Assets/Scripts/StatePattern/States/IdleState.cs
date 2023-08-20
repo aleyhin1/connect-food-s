@@ -9,7 +9,8 @@ public class IdleState : State, IState
 
     public void Enter()
     {
-
+        TileScript.Animator.SetBool("isSelected", false);
+        TileScript.Rope.SetActive(false);
     }
 
     public void Update()

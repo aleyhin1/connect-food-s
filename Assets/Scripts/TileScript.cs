@@ -45,6 +45,29 @@ public class TileScript : MonoBehaviour
         }
     }
 
+    private void OnMouseUp()
+    {
+        if (SelectedTiles.Tiles.Count >= 3)
+        {
+            foreach (var tile in SelectedTiles.Tiles)
+            {
+                tile.GetComponent<TileScript>().OnTileDestroy.Invoke();
+            }
+        }
+        else
+        {
+            foreach(var tile in SelectedTiles.Tiles)
+            {
+                TileScript tileScript = tile.GetComponent<TileScript>();
+                tileScript.TileStateMachine.TransitionTo(tileScript.TileStateMachine.IdleState);
+            }
+        }
+
+        SelectedTiles.Tiles.Clear();
+        SelectedTiles.Positions.Clear();
+        SelectedFruit.Type = string.Empty;
+    }
+
     private void Update()
     {
         TileStateMachine.Update();

@@ -11,29 +11,19 @@ public class LastSelectedState : State, IState
 
     public void Enter()
     {
-        TileScript.Animator.SetBool("isSelected", true);
-        TileScript.SelectedFruit.Type = TileScript.gameObject.tag;
-        TileScript.SetWalkableOnNeighbours();
-        TileScript.SelectedTiles.Tiles.Push(TileScript.gameObject);
-        TileScript.Rope.SetActive(true);
-        _ropeController = TileScript.gameObject.GetComponentInChildren<RopeController>();
-        _ropeController.StartCoroutine(_ropeController.MoveCoroutine);
-        _ropeController.StartCoroutine(_ropeController.ResizeCoroutine);
+        if (TileScript.SelectedTiles.Positions.Contains(TileScript.transform.position))
+        {
+            OnSelectedTwice();
+        }
+
+        SetLastSelected();
     }
 
     public void Update()
     {
-        if (TileScript.SelectedTiles.Tiles.Count == 0)
-        {
-            TileScript.TileStateMachine.TransitionTo(TileScript.TileStateMachine.DestroyState);
-        }
-        else if (TileScript.SelectedTiles.Tiles.Peek() != TileScript.gameObject)
+        if (TileScript.SelectedTiles.Positions.Peek() != TileScript.transform.position)
         {
             TileScript.TileStateMachine.TransitionTo(TileScript.TileStateMachine.SelectedState);
-        }
-        else if (Input.touchCount == 0)
-        {
-            TileScript.TileStateMachine.TransitionTo(TileScript.TileStateMachine.DestroyState);
         }
     }
 
@@ -43,4 +33,33 @@ public class LastSelectedState : State, IState
         _ropeController.StopCoroutine(_ropeController.ResizeCoroutine);
     }
 
+    private void OnSelectedTwice()
+    {
+        while (TileScript.SelectedTiles.Positions.Peek() != TileScript.transform.position)
+        {
+            GameObject lastTile = TileScript.SelectedTiles.Tiles.Pop();
+            TileScript lastTileScript = lastTile.GetComponent<TileScript>();
+            lastTileScript.TileStateMachine.TransitionTo(lastTileScript.TileStateMachine.IdleState);
+
+            TileScript.SelectedTiles.Positions.Pop();
+        }
+
+        TileScript.SelectedTiles.Tiles.Pop();
+        TileScript.SelectedTiles.Positions.Pop();
+        _ropeController.StopAllCoroutines();
+        TileScript.Rope.SetActive(false);
+    }
+
+    private void SetLastSelected()
+    {
+        TileScript.Animator.SetBool("isSelected", true);
+        TileScript.SelectedFruit.Type = TileScript.gameObject.tag;
+        TileScript.SetWalkableOnNeighbours();
+        TileScript.SelectedTiles.Tiles.Push(TileScript.gameObject);
+        TileScript.SelectedTiles.Positions.Push(TileScript.transform.position);
+        TileScript.Rope.SetActive(true);
+        _ropeController = TileScript.gameObject.GetComponentInChildren<RopeController>();
+        _ropeController.StartCoroutine(_ropeController.MoveCoroutine);
+        _ropeController.StartCoroutine(_ropeController.ResizeCoroutine);
+    }
 }

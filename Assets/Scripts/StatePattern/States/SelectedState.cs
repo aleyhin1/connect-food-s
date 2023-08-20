@@ -14,20 +14,12 @@ public class SelectedState : State , IState
 
     public void Update()
     {
-        if (Input.touchCount == 0)
-        {
-            TileScript.TileStateMachine.TransitionTo(TileScript.TileStateMachine.DestroyState);
-        }
+
     }
 
     public void Exit()
     {
-        TileScript.Animator.SetBool("isSelected", false);
 
-        if (TileScript.SelectedTiles.Tiles.Count  > 0)
-        {
-            TileScript.SelectedTiles.Tiles.Clear();
-        }
     }
 
 
