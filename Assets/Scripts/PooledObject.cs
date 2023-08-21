@@ -13,6 +13,6 @@ public class PooledObject : MonoBehaviour
 
     public void ShufflePool()
     {
-        pool.ShuffleQueue();
+        pool.StartCoroutine(pool.ShuffleQueue());
     }
 }

@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -72,8 +73,9 @@ public class ObjectPool : MonoBehaviour
         return poolSize;
     }
 
-    public void ShuffleQueue()
+    public IEnumerator ShuffleQueue()
     {
+        yield return new WaitForEndOfFrame();
         _destroyedTilesCount++;
         Debug.Log("Destroyed tiles count is : " + _destroyedTilesCount);
         if (_destroyedTilesCount  >= BoardDimension.x * BoardDimension.y)
