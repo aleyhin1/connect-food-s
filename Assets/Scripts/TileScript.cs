@@ -23,7 +23,7 @@ public class TileScript : MonoBehaviour
         TileStateMachine = new TileStateMachine(this);
     }
 
-    private void Start()
+    private void OnEnable()
     {
         TileStateMachine.Initialize(TileStateMachine.IdleState);
         _boardSpawner = FindObjectOfType<BoardSpawner>();
