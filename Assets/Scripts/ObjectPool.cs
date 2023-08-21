@@ -14,12 +14,11 @@ public class ObjectPool : MonoBehaviour
 
     // store the pooled objects in a collection
     private Queue<PooledObject> _queue;
+    private int _destroyedTilesCount = 0;
 
     private void Start()
     {
         SetupPool();
-
-        ShuffleQueue();
     }
 
     // creates the pool (invoke when the lag is not noticeable)
@@ -73,11 +72,18 @@ public class ObjectPool : MonoBehaviour
         return poolSize;
     }
 
-    private void ShuffleQueue()
+    public void ShuffleQueue()
     {
-        List<PooledObject> tempList = _queue.ToList<PooledObject>();
-        ShuffleList(tempList);
-        _queue = new Queue<PooledObject>(tempList);
+        _destroyedTilesCount++;
+        Debug.Log("Destroyed tiles count is : " + _destroyedTilesCount);
+        if (_destroyedTilesCount  >= BoardDimension.x * BoardDimension.y)
+        {
+            List<PooledObject> tempList = _queue.ToList<PooledObject>();
+            ShuffleList(tempList);
+            _queue = new Queue<PooledObject>(tempList);
+            Debug.Log("I shuffled the pool");
+            _destroyedTilesCount = 0;
+        }
     }
 
     //Fischer-Yates shuffle alghoritm

@@ -10,4 +10,9 @@ public class PooledObject : MonoBehaviour
     {
         pool.ReturnToPool(this);
     }
+
+    public void ShufflePool()
+    {
+        pool.ShuffleQueue();
+    }
 }
