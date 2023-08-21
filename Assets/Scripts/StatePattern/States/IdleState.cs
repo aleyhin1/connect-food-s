@@ -13,6 +13,7 @@ public class IdleState : State, IState
         RopeController ropeController = TileScript.Rope.GetComponent<RopeController>();
         ropeController.StopAllCoroutines();
         TileScript.Rope.SetActive(false);
+        TileScript.IsWalkable = false;
     }
 
     public void Update()

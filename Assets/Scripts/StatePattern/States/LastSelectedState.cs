@@ -40,7 +40,6 @@ public class LastSelectedState : State, IState
     {
         while (TileScript.SelectedTiles.Positions.Peek() != TileScript.transform.position)
         {
-            Debug.Log("I'm in OnSelectedTwice loop");
             GameObject lastTile = TileScript.SelectedTiles.Tiles.Pop();
             TileScript lastTileScript = lastTile.GetComponent<TileScript>();
             lastTileScript.TileStateMachine.TransitionTo(lastTileScript.TileStateMachine.IdleState);
