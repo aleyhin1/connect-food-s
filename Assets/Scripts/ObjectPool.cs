@@ -29,8 +29,6 @@ public class ObjectPool : MonoBehaviour
         {
             instance = Instantiate(GetRandomTile(), transform);
             instance.Pool = this;
-            instance.name += i;
-            instance.GetComponent<TileScript>().ObjectReference = instance.gameObject;
             instance.gameObject.SetActive(false);
             _queue.Enqueue(instance);
         }

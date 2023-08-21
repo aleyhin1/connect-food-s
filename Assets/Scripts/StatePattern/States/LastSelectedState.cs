@@ -27,7 +27,7 @@ public class LastSelectedState : State, IState
 
     public void Update()
     {
-        Debug.Log(TileScript.SelectedTiles.Tiles.Count);
+
     }
 
     public void Exit()
@@ -59,7 +59,7 @@ public class LastSelectedState : State, IState
         TileScript.Animator.SetBool("isSelected", true);
         TileScript.SelectedFruit.Type = TileScript.gameObject.tag;
         TileScript.SetWalkableOnNeighbours();
-        TileScript.SelectedTiles.Tiles.Push(TileScript.ObjectReference);
+        TileScript.SelectedTiles.Tiles.Push(TileScript.gameObject);
         TileScript.SelectedTiles.Positions.Push(TileScript.transform.position);
         TileScript.Rope.SetActive(true);
         _ropeController = TileScript.gameObject.GetComponentInChildren<RopeController>();

@@ -12,7 +12,6 @@ public class TileScript : MonoBehaviour
     public TileStateMachine TileStateMachine;
     public SelectedTiles SelectedTiles;
     public GameObject Rope;
-    public GameObject ObjectReference;
     
 
     private BoardSpawner _boardSpawner;
