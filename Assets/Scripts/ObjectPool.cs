@@ -1,6 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+
 
 public class ObjectPool : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class ObjectPool : MonoBehaviour
     private void Start()
     {
         SetupPool();
+
+        ShuffleQueue();
     }
 
     // creates the pool (invoke when the lag is not noticeable)
@@ -68,5 +71,25 @@ public class ObjectPool : MonoBehaviour
     {
         int poolSize = BoardDimension.x * BoardDimension.y * _poolMultiplier;
         return poolSize;
+    }
+
+    private void ShuffleQueue()
+    {
+        List<PooledObject> tempList = _queue.ToList<PooledObject>();
+        ShuffleList(tempList);
+        _queue = new Queue<PooledObject>(tempList);
+    }
+
+    //Fischer-Yates shuffle alghoritm
+    private static void ShuffleList<T>(List<T> list)
+    {
+        int n = list.Count;
+        for (int i = 0; i < n; i++)
+        {
+            int randIndex = Random.Range(i, n);
+            T temp = list[i];
+            list[i] = list[randIndex];
+            list[randIndex] = temp;
+        }
     }
 }
