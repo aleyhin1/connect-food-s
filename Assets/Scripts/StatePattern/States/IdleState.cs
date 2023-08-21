@@ -10,6 +10,8 @@ public class IdleState : State, IState
     public void Enter()
     {
         TileScript.Animator.SetBool("isSelected", false);
+        RopeController ropeController = TileScript.Rope.GetComponent<RopeController>();
+        ropeController.StopAllCoroutines();
         TileScript.Rope.SetActive(false);
     }
 

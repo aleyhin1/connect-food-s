@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class LastSelectedState : State, IState
@@ -17,14 +18,16 @@ public class LastSelectedState : State, IState
         }
 
         SetLastSelected();
+
+        if (TileScript.SelectedTiles.Tiles.Count > 1)
+        {
+            SetPreviousTileToSelected();
+        }
     }
 
     public void Update()
     {
-        if (TileScript.SelectedTiles.Positions.Peek() != TileScript.transform.position)
-        {
-            TileScript.TileStateMachine.TransitionTo(TileScript.TileStateMachine.SelectedState);
-        }
+        Debug.Log(TileScript.SelectedTiles.Tiles.Count);
     }
 
     public void Exit()
@@ -37,6 +40,7 @@ public class LastSelectedState : State, IState
     {
         while (TileScript.SelectedTiles.Positions.Peek() != TileScript.transform.position)
         {
+            Debug.Log("I'm in OnSelectedTwice loop");
             GameObject lastTile = TileScript.SelectedTiles.Tiles.Pop();
             TileScript lastTileScript = lastTile.GetComponent<TileScript>();
             lastTileScript.TileStateMachine.TransitionTo(lastTileScript.TileStateMachine.IdleState);
@@ -55,11 +59,21 @@ public class LastSelectedState : State, IState
         TileScript.Animator.SetBool("isSelected", true);
         TileScript.SelectedFruit.Type = TileScript.gameObject.tag;
         TileScript.SetWalkableOnNeighbours();
-        TileScript.SelectedTiles.Tiles.Push(TileScript.gameObject);
+        TileScript.SelectedTiles.Tiles.Push(TileScript.ObjectReference);
         TileScript.SelectedTiles.Positions.Push(TileScript.transform.position);
         TileScript.Rope.SetActive(true);
         _ropeController = TileScript.gameObject.GetComponentInChildren<RopeController>();
         _ropeController.StartCoroutine(_ropeController.MoveCoroutine);
         _ropeController.StartCoroutine(_ropeController.ResizeCoroutine);
+    }
+
+    private void SetPreviousTileToSelected()
+    {
+        Stack<GameObject> tempStack = new Stack<GameObject>(new Stack<GameObject>(TileScript.SelectedTiles.Tiles));
+        tempStack.Pop();
+
+        GameObject previousTile = tempStack.Peek();
+        TileScript previousTileScript = previousTile.GetComponent<TileScript>();
+        previousTileScript.TileStateMachine.TransitionTo(previousTileScript.TileStateMachine.SelectedState);
     }
 }

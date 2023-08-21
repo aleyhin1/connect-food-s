@@ -1,4 +1,5 @@
 using UnityEngine;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class SelectedState : State , IState
 {
@@ -9,7 +10,7 @@ public class SelectedState : State , IState
     public void Enter()
     {
         _ropeController = TileScript.gameObject.GetComponentInChildren<RopeController>();
-        _ropeController.Lock(TileScript.SelectedTiles.Tiles.Peek());
+        _ropeController.Lock(TileScript.SelectedTiles.Positions.Peek());
     }
 
     public void Update()

@@ -12,6 +12,7 @@ public class TileScript : MonoBehaviour
     public TileStateMachine TileStateMachine;
     public SelectedTiles SelectedTiles;
     public GameObject Rope;
+    public GameObject ObjectReference;
     
 
     private BoardSpawner _boardSpawner;
@@ -29,6 +30,7 @@ public class TileScript : MonoBehaviour
         _boardSpawner = FindObjectOfType<BoardSpawner>();
     }
 
+    
     private void OnMouseEnter()
     {
         if (Input.touchCount > 0)

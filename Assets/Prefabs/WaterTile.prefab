@@ -278,6 +278,7 @@ MonoBehaviour:
         m_CallState: 2
   SelectedTiles: {fileID: 11400000, guid: f6c149b32b1674143958f67bf966a605, type: 2}
   Rope: {fileID: 3719516966837656624}
+  ObjectReference: {fileID: 0}
 --- !u!50 &9118859732066367321
 Rigidbody2D:
   serializedVersion: 4

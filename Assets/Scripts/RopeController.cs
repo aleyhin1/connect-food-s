@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class RopeController : MonoBehaviour
@@ -24,22 +25,20 @@ public class RopeController : MonoBehaviour
             if (Input.touchCount != 0)
             {
                 transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, FindAngle(GetInputVector()));
-                
-                yield return new WaitForEndOfFrame();
             }
+
+            yield return new WaitForEndOfFrame();
         }
     }
 
-    public void Lock(GameObject lastSelectedTile)
+    public void Lock(Vector2 lastSelectedTilePosition)
     {
-        Vector2 lastSelectedTilePosition = lastSelectedTile.transform.position;
         transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, FindAngle(lastSelectedTilePosition));
         transform.localScale = new Vector3(1.5f, .25f, 1);
     }
 
     private float FindAngle(Vector2 targetPosition)
     {
-       
         Vector2 DifferenceVector = targetPosition - _tilePosition;
         float angleInRadian = Mathf.Atan2(DifferenceVector.y, DifferenceVector.x);
         float angle = Mathf.Rad2Deg * angleInRadian;
@@ -56,10 +55,9 @@ public class RopeController : MonoBehaviour
                 float resizeMultiplier = resizeVector.magnitude;
                 resizeMultiplier = Mathf.Clamp(resizeMultiplier, 0, 1.75f);
 
-                transform.localScale = new Vector3(resizeMultiplier, .25f, 1);
-
-                yield return new WaitForEndOfFrame();
+                transform.localScale = new Vector3(resizeMultiplier, .25f, 1); 
             }
+            yield return new WaitForEndOfFrame();
         }
     }
 
