@@ -23,6 +23,8 @@ public class LastSelectedState : State, IState
         {
             SetPreviousTileToSelected();
         }
+
+        TileScript.SetWalkableOnNeighbours();
     }
 
     public void Update()
@@ -42,6 +44,7 @@ public class LastSelectedState : State, IState
         {
             GameObject lastTile = TileScript.SelectedTiles.Tiles.Pop();
             TileScript lastTileScript = lastTile.GetComponent<TileScript>();
+            lastTileScript.SetUnwalkableOnNeighbours();
             lastTileScript.TileStateMachine.TransitionTo(lastTileScript.TileStateMachine.IdleState);
 
             TileScript.SelectedTiles.Positions.Pop();

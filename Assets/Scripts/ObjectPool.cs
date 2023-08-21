@@ -77,13 +77,11 @@ public class ObjectPool : MonoBehaviour
     {
         yield return new WaitForEndOfFrame();
         _destroyedTilesCount++;
-        Debug.Log("Destroyed tiles count is : " + _destroyedTilesCount);
         if (_destroyedTilesCount  >= BoardDimension.x * BoardDimension.y)
         {
             List<PooledObject> tempList = _queue.ToList<PooledObject>();
             ShuffleList(tempList);
             _queue = new Queue<PooledObject>(tempList);
-            Debug.Log("I shuffled the pool");
             _destroyedTilesCount = 0;
         }
     }

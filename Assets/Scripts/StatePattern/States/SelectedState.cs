@@ -11,11 +11,12 @@ public class SelectedState : State , IState
     {
         _ropeController = TileScript.gameObject.GetComponentInChildren<RopeController>();
         _ropeController.Lock(TileScript.SelectedTiles.Positions.Peek());
+        TileScript.SetUnwalkableOnNeighbours();
     }
 
     public void Update()
     {
-
+        
     }
 
     public void Exit()

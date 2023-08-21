@@ -52,7 +52,9 @@ public class TileScript : MonoBehaviour
         {
             foreach (var tile in SelectedTiles.Tiles)
             {
-                tile.GetComponent<TileScript>().OnTileDestroy.Invoke();
+                TileScript tileScript = tile.GetComponent<TileScript>();
+                tileScript.SetUnwalkableOnNeighbours();
+                tileScript.OnTileDestroy.Invoke();
             }
         }
         else
@@ -60,6 +62,7 @@ public class TileScript : MonoBehaviour
             foreach(var tile in SelectedTiles.Tiles)
             {
                 TileScript tileScript = tile.GetComponent<TileScript>();
+                tileScript.SetUnwalkableOnNeighbours();
                 tileScript.TileStateMachine.TransitionTo(tileScript.TileStateMachine.IdleState);
             }
         }
@@ -83,6 +86,25 @@ public class TileScript : MonoBehaviour
             if (hitInfo != false && (hitInfo.collider.tag == SelectedFruit.Type))
             {
                 hitInfo.collider.GetComponent<TileScript>().IsWalkable = true;
+            }
+        }
+    }
+
+    public void SetUnwalkableOnNeighbours()
+    {
+        foreach (Vector2 directionVectors in _raycastVectors)
+        {
+            RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, directionVectors, 1f);
+
+            if (hitInfo != false && (hitInfo.collider.tag == SelectedFruit.Type))
+            {
+                TileScript hitInfoTileScript = hitInfo.collider.gameObject.GetComponent<TileScript>();
+                IState hitInfoState = hitInfoTileScript.TileStateMachine.CurrentState;
+
+                if (hitInfoState == hitInfoTileScript.TileStateMachine.IdleState)
+                {
+                    hitInfo.collider.GetComponent<TileScript>().IsWalkable = false;
+                }
             }
         }
     }
