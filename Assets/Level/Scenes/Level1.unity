@@ -1740,7 +1740,6 @@ MonoBehaviour:
   - {fileID: -1178644321042877288, guid: 224685dab1fe66f42a07cbae9cd971de, type: 3}
   BoardDimension: {x: 5, y: 6}
   _poolMultiplier: 2
-  DestroyedTiles: {fileID: 11400000, guid: f6c149b32b1674143958f67bf966a605, type: 2}
 --- !u!114 &1429191986
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -7,6 +7,7 @@ public class RopeController : MonoBehaviour
 {
     private Camera _camera;
     private Vector2 _tilePosition;
+
     public IEnumerator MoveCoroutine;
     public IEnumerator ResizeCoroutine;
 
