@@ -1739,7 +1739,7 @@ MonoBehaviour:
   - {fileID: 5722538785603907635, guid: 93a1cb7dbb05f1746a83f6c06d2ec71c, type: 3}
   - {fileID: -1178644321042877288, guid: 224685dab1fe66f42a07cbae9cd971de, type: 3}
   BoardDimension: {x: 5, y: 6}
-  _poolMultiplier: 2
+  PoolMultiplier: 2
 --- !u!114 &1429191986
 MonoBehaviour:
   m_ObjectHideFlags: 0

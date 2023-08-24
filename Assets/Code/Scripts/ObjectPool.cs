@@ -9,7 +9,7 @@ public class ObjectPool : MonoBehaviour
     public PooledObject[] TilePrefabs;
     public Vector2Int BoardDimension;
     // Determines how much bigger the Poolsize should be than the Boardsize
-    public int _poolMultiplier;
+    public int PoolMultiplier;
 
     private PooledObject _objectToPool;
 
@@ -69,7 +69,7 @@ public class ObjectPool : MonoBehaviour
 
     private int GetPoolSize()
     {
-        int poolSize = BoardDimension.x * BoardDimension.y * _poolMultiplier;
+        int poolSize = BoardDimension.x * BoardDimension.y * PoolMultiplier;
         return poolSize;
     }
 
