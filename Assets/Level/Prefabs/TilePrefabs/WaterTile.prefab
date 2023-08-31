@@ -96,9 +96,9 @@ GameObject:
   - component: {fileID: 4533152918640234826}
   - component: {fileID: 7238874244277106921}
   - component: {fileID: 9115653710862539932}
-  - component: {fileID: 5628552154764227788}
   - component: {fileID: 9118859732066367321}
   - component: {fileID: -1178644321042877288}
+  - component: {fileID: 3717106803831599675}
   m_Layer: 0
   m_Name: WaterTile
   m_TagString: Water
@@ -221,75 +221,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.9, y: 1}
   m_EdgeRadius: 0
---- !u!114 &5628552154764227788
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7919095108806001725}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f554be6bf9a5aa4288a9f17c701fb03, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Animator: {fileID: 7238874244277106921}
-  SelectedFruit: {fileID: 11400000, guid: 09906d3a0d2ffac4b93672ad5a145cc1, type: 2}
-  NeighbourTiles: []
-  IsWalkable: 0
-  OnTileDestroy:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: -1178644321042877288}
-        m_TargetAssemblyTypeName: PooledObject, Assembly-CSharp
-        m_MethodName: Release
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 5628552154764227788}
-        m_TargetAssemblyTypeName: TileScript, Assembly-CSharp
-        m_MethodName: TileDestroyed
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 3719516966837656624}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: -1178644321042877288}
-        m_TargetAssemblyTypeName: PooledObject, Assembly-CSharp
-        m_MethodName: ShufflePool
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  SelectedTiles: {fileID: 11400000, guid: f6c149b32b1674143958f67bf966a605, type: 2}
-  Rope: {fileID: 3719516966837656624}
 --- !u!50 &9118859732066367321
 Rigidbody2D:
   serializedVersion: 4
@@ -323,6 +254,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e64416efd65caa94e9379a96bf9090f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3717106803831599675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7919095108806001725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8387d87f82be4024082fb3ffb3eb6934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Animator: {fileID: 7238874244277106921}
+  SelectedFruit: {fileID: 11400000, guid: 09906d3a0d2ffac4b93672ad5a145cc1, type: 2}
+  NeighbourTiles: []
+  IsWalkable: 0
+  OnTileDestroy:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -1178644321042877288}
+        m_TargetAssemblyTypeName: PooledObject, Assembly-CSharp
+        m_MethodName: Release
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: -1178644321042877288}
+        m_TargetAssemblyTypeName: PooledObject, Assembly-CSharp
+        m_MethodName: ShufflePool
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3717106803831599675}
+        m_TargetAssemblyTypeName: TileScript, Assembly-CSharp
+        m_MethodName: TileDestroyed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  SelectedTiles: {fileID: 11400000, guid: f6c149b32b1674143958f67bf966a605, type: 2}
+  Rope: {fileID: 3719516966837656624}
 --- !u!1001 &5799782875556662405
 PrefabInstance:
   m_ObjectHideFlags: 0
