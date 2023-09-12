@@ -14,15 +14,16 @@ public class LevelScript : MonoBehaviour
     private int _goal2Count;
     private int _goal3Count;
     private int _moveCount;
-    private int? _highestScore;
-    private bool? _isPlayable;
+    private int _highestScore;
+    private bool _isPlayable;
 
     private void Start()
     {
-        SetData();
+        GetData();
+        SetUIValues();
     }
 
-    private void SetData()
+    private void GetData()
     {
         if (_levelNumber > 0)
         {
@@ -47,5 +48,13 @@ public class LevelScript : MonoBehaviour
             }
             DatabaseUtility.Close(dataReader, dbCommand, dbConnection);
         }
+    }
+
+    private void SetUIValues()
+    {
+        LevelLogic logicScript = GetComponent<LevelLogic>();
+        logicScript.SetLevelNumber(_levelNumber);
+        logicScript.SetHighestScore(_highestScore);
+        logicScript.SetPlayable(_isPlayable);
     }
 }

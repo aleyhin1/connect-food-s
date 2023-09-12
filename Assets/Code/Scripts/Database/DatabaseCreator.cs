@@ -4,7 +4,7 @@ using UnityEngine;
 using Mono.Data.Sqlite;
 using System.Data;
 
-public class LevelData : MonoBehaviour
+public class DatabaseCreator : MonoBehaviour
 {
     private void Awake()
     {

@@ -632,6 +632,7 @@ GameObject:
   - component: {fileID: 7707660030494708104}
   - component: {fileID: 7707660030494708111}
   - component: {fileID: 8398777490032629280}
+  - component: {fileID: -5284758237940767389}
   m_Layer: 5
   m_Name: LevelPrefab
   m_TagString: Untagged
@@ -685,7 +686,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8962264, g: 0.8954095, b: 0.8573336, a: 1}
+  m_Color: {r: 0.9, g: 0.8960698, b: 0.86069864, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -714,3 +715,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e78649dde6700bc46b7fa9d964673a57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _levelNumber: 0
+--- !u!114 &-5284758237940767389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7707660030494708109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 359fb4f5fdd9d1a4aadb9d90710b37e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LevelPrefabImage: {fileID: 7707660030494708111}
+  PlayButtonImage: {fileID: 7707660029357678464}
+  LevelNumberTextMeshPro: {fileID: 7707660030250030488}
+  HighestScoreTextMeshPro: {fileID: 7707660028747222748}
