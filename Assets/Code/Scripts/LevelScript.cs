@@ -43,8 +43,8 @@ public class LevelScript : MonoBehaviour
                 _goal3 = dataReader.GetString(5);
                 _goal3Count = dataReader.GetInt32(6);
                 _moveCount = dataReader.GetInt32(7);
-                _isPlayable = dataReader.GetBoolean(8);
-                _highestScore = dataReader.GetInt32(9);
+                //_isPlayable = dataReader.GetBoolean(8);
+                //_highestScore = dataReader.GetInt32(9);
             }
             DatabaseUtility.Close(dataReader, dbCommand, dbConnection);
         }

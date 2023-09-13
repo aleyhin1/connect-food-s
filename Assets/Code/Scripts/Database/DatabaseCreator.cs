@@ -11,6 +11,7 @@ public class DatabaseCreator : MonoBehaviour
         CreateTable();
         CreateLevel(1, "Banana", 5, "Water", 5, "Pumpkin", 5, 45);
         CreateLevel(2, "Apple", 7, "Pumpkin", 7, "Leaf", 7, 60);
+        CreateLevel(3, "Water", 10, "Apple", 10, "Pumpkin", 10, 50);
     }
 
     private void CreateTable()
